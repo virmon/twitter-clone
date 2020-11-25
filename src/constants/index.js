@@ -1,0 +1,8 @@
+export const SET_AUTHED_USER = 'SET_AUTHED_USER'
+
+export const RECEIVE_USERS = 'RECEIVE_USERS'
+
+export const RECEIVE_TWEETS = 'RECEIVE_TWEETS'
+export const ADD_TWEET = 'ADD_TWEET'
+export const LIKE_TOGGLE = 'LIKE_TOGGLE'
+export const ADD_COMMENT = 'ADD_COMMENT'
