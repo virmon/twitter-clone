@@ -1,9 +1,11 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import LoadingBar from 'react-redux-loading-bar'
 import TweetFeed from './components/TweetFeed'
-// import AddTweet from './components/AddTweet'
+import AddTweet from './components/AddTweet'
+import Nav from './components/Nav'
 
 function App() {
   const dispatch = useDispatch()
@@ -22,11 +24,20 @@ function App() {
   }, [dispatch])
   
   return (
-    <div className="App">
-      <LoadingBar />
-      {/* <AddTweet /> */}
-      <TweetFeed />
-    </div>
+    <Router> 
+      <div className="App">
+        <LoadingBar />
+        <Switch>
+          <Route path='/' exact>
+            <TweetFeed />
+          </Route>
+          <Route path='/add'>
+            <AddTweet />
+          </Route>
+        </Switch>
+      </div>
+      <Nav />
+    </Router>
   );
 }
 
