@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { handleInitialData } from './actions/shared'
+import LoadingBar from 'react-redux-loading-bar'
 import TweetFeed from './components/TweetFeed'
 // import AddTweet from './components/AddTweet'
 
@@ -22,6 +23,7 @@ function App() {
   
   return (
     <div className="App">
+      <LoadingBar />
       {/* <AddTweet /> */}
       <TweetFeed />
     </div>
