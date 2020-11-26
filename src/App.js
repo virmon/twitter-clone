@@ -1,15 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { handleInitialData } from './actions/shared'
 import LoadingBar from 'react-redux-loading-bar'
 import TweetFeed from './components/TweetFeed'
 import AddTweet from './components/AddTweet'
+import Profile from './components/Profile'
 import Nav from './components/Nav'
 
 function App() {
   const dispatch = useDispatch()
-  // const users = useSelector((state) => state.users)
+  const authedUser = useSelector((state) => state.authedUser)
+  const users = useSelector((state) => state.users)
   // const tweets = useSelector((state) => state.tweets)
 
   React.useEffect(() => {
@@ -33,6 +35,9 @@ function App() {
           </Route>
           <Route path='/add'>
             <AddTweet />
+          </Route>
+          <Route path='/account'>
+            <Profile authedUser={authedUser} users={users} />
           </Route>
         </Switch>
       </div>
